@@ -1,0 +1,257 @@
+/* ─────────────────────────────────────────────────────
+   Calendar — wedding style
+───────────────────────────────────────────────────── */
+
+@keyframes shimmer {
+  0%   { left: -100%; }
+  100% { left: 200%; }
+}
+// Root
+.section {
+  width: 100%;
+  position: relative;
+}
+
+/* ════════════════════════════════════
+   LAYOUT
+════════════════════════════════════ */
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  position: relative;
+  z-index: 1;
+}
+
+// Section label
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-warm-muted);
+  align-self: flex-start;
+  padding: 4px 10px;
+  background: rgba(107, 26, 42, 0.05);
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(107, 26, 42, 0.08);
+}
+
+// Romantic subtitle
+.subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--text-warm-muted);
+  line-height: 1.6;
+  margin: 0;
+  align-self: flex-start;
+  padding: 0 4px;
+}
+
+/* ════════════════════════════════════
+   WIDGET
+════════════════════════════════════ */
+.widget {
+  width: 100%;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  position: relative;
+  cursor: default;
+
+  // Gold top accent
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 15%;
+    right: 15%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+    opacity: 0.65;
+    z-index: 1;
+    pointer-events: none;
+  }
+}
+
+// Wine header
+.calHeader {
+  background: linear-gradient(135deg, var(--accent-wine) 0%, #5C1020 100%);
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.monthLabel {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.92);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+// White body
+.calBody {
+  background: #ffffff0c;
+  padding: 20px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(12px) saturate(1.6);
+  -webkit-backdrop-filter: blur(12px) saturate(1.6);
+}
+
+// Week strip
+.weekStrip {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+.weekDay {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--text-warm-muted);
+  text-align: center;
+  padding: 2px 0;
+}
+
+.weekDayActive {
+  color: var(--accent-wine);
+  font-weight: 700;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    translate: -50% 0;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent-wine);
+  }
+}
+
+// Big day number
+.dayNumber {
+  font-family: var(--font-sans);
+  font-size: 5rem;
+  font-weight: 200;
+  color: var(--accent-wine);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin-bottom: 2px;
+}
+
+.weekdayName {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--text-warm-muted);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  margin-bottom: 20px;
+}
+
+// Thin separator
+.divider {
+  width: 100%;
+  height: 0.5px;
+  background: var(--divider-warm);
+  margin-bottom: 16px;
+}
+
+// Event rows
+.eventRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 7px;
+
+  &:last-child { margin-bottom: 0; }
+}
+
+.eventDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-wine);
+  flex-shrink: 0;
+}
+
+.eventLabel {
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  color: var(--text-warm-dark);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ════════════════════════════════════
+   CTA BUTTON — primary gradient
+════════════════════════════════════ */
+.addBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: 0 var(--spacing-xl);
+  height: 54px;
+  background: linear-gradient(135deg, var(--accent-wine) 0%, #5C1020 100%);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 44px;
+  width: 100%;
+  letter-spacing: 0.02em;
+  transition: opacity 0.2s, transform 0.12s;
+  box-shadow: 0 4px 20px rgba(107, 26, 42, 0.30), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+    animation: shimmer 2.8s infinite 0.4s;
+    pointer-events: none;
+  }
+
+  &:active { transform: scale(0.97); }
+}
+
+.addBtnDone {
+  background: linear-gradient(135deg, var(--accent-gold) 0%, #9A7018 100%);
+  box-shadow: 0 4px 16px rgba(201, 162, 39, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  cursor: default;
+
+  &::after { display: none; }
+}
+
+.btnInner {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}

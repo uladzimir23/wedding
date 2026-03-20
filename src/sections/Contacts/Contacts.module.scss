@@ -1,0 +1,89 @@
+.section {
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+// Small uppercase label above group
+.label {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--text-warm-muted);
+  text-transform: uppercase;
+  padding: 0 4px;
+  margin-bottom: 2px;
+}
+
+// ── iOS-style grouped list ──
+.group {
+  background: var(--card-bg);
+  backdrop-filter: var(--card-blur);
+  -webkit-backdrop-filter: var(--card-blur);
+  border: var(--card-border);
+  border-radius: var(--radius-group);
+  overflow: hidden;
+  box-shadow: var(--shadow-group);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s;
+
+  &:active {
+    background: rgba(107, 26, 42, 0.04);
+  }
+}
+
+.rowIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.rowBody {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.rowTitle {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-warm-dark);
+}
+
+.rowSub {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--text-warm-muted);
+}
+
+.chevron {
+  color: var(--chevron-warm);
+  flex-shrink: 0;
+}
+
+.rowDivider {
+  height: 0.5px;
+  background: var(--divider-warm);
+  margin-left: calc(14px + 30px + 12px);
+}

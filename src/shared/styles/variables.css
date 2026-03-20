@@ -1,0 +1,104 @@
+:root {
+  /* ══════════════════════════════════════
+     Цвета — фон и текст
+  ══════════════════════════════════════ */
+  --bg-color:      #FDF0EE;
+
+   --text-primary:  #5C1622;
+   --text-secondary:#8B3A4A;
+
+  --white:         #FFFFFF;
+
+  /* ══════════════════════════════════════
+     Акценты
+  ══════════════════════════════════════ */
+  --accent-gold:       #C9A227;
+  --accent-rose:       #EDD0D0;
+  --accent-rose-dark:  #D6AFAF;
+  --accent-dusty-rose: #C4959A;
+  --accent-blue:       #B8D4E3;
+  --accent-green:      #C5D5C0;
+  --accent-wine:       #6B1A2A;
+
+  /* ══════════════════════════════════════
+     Шрифты
+  ══════════════════════════════════════ */
+  --font-script: 'Great Vibes', cursive;
+  --font-serif:  'Playfair Display', serif;
+  --font-sans:   'Montserrat', sans-serif;
+
+  /* ══════════════════════════════════════
+     Отступы
+  ══════════════════════════════════════ */
+  --spacing-xs:  4px;
+  --spacing-sm:  8px;
+  --spacing-md:  16px;
+  --spacing-lg:  36px;
+  --spacing-xl:  40px;
+  --spacing-xxl: 64px;
+
+  /* ══════════════════════════════════════
+     Скругления
+  ══════════════════════════════════════ */
+  --border-radius-sm:   10px;
+  --border-radius-md:   18px;
+  --border-radius-lg:   26px;
+  --border-radius-xl:   34px;
+  --border-radius-full: 9999px;
+
+  /* ══════════════════════════════════════
+     Стёкло (Glass) — переиспользовать в секциях
+  ══════════════════════════════════════ */
+  --glass-bg:       rgba(255, 252, 251, 0.06);
+  --glass-bg-heavy: rgba(255, 252, 251, 0.08);
+  --glass-border:   rgba(255, 255, 255, 0.06);
+  --glass-blur:     blur(8px) saturate(1.7);
+  --glass-shadow:   0 4px 20px rgba(107, 26, 42, 0.07),
+                    0 1px 4px rgba(107, 26, 42, 0.04),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  /* ── Карточки (единый стандарт) ── */
+  --card-bg:     rgba(255, 255, 255, 0.07);
+  --card-blur:   blur(4px) saturate(1.6);
+  --card-border: 0.5px solid rgba(255, 255, 255, 0.08);
+
+  --radius-card:  2rem;    /* крупные блоки */
+  --radius-group: 2rem;    /* компактные списки, FAQ items */
+  --radius-pill:  100px;   /* кнопки, time-pills, nav */
+
+  --shadow-card:  0 2px 12px rgba(107, 26, 42, 0.06), 0 8px 32px rgba(107, 26, 42, 0.09);
+  --shadow-group: 0 1px 6px rgba(107, 26, 42, 0.05), 0 4px 20px rgba(107, 26, 42, 0.07);
+
+  /* ── Тёплые нейтральные (вместо Apple-серых) ── */
+  --text-warm-dark:  #2C1A1E;                  /* осн. тёмный  (вместо #1C1C1E) */
+  --text-warm-muted: #9A8080;                  /* вторичный    (вместо #8E8E93) */
+  --text-warm-faint: rgba(92, 22, 34, 0.42);  /* очень бледный */
+  --divider-warm:    rgba(107, 26, 42, 0.10); /* разделители  (вместо rgba(60,60,67,...)) */
+  --chevron-warm:    rgba(107, 26, 42, 0.25); /* шевроны      (вместо #C7C7CC) */
+
+  /* ── Ритм секций ── */
+  --section-gap: 20px;
+
+  /* ══════════════════════════════════════
+     Тени
+  ══════════════════════════════════════ */
+  --shadow-soft:   0 2px 12px rgba(107, 26, 42, 0.05);
+  --shadow-medium: 0 6px 24px rgba(107, 26, 42, 0.08);
+  --shadow-strong: 0 16px 48px rgba(107, 26, 42, 0.12);
+
+  /* ══════════════════════════════════════
+     App Shell — floating bars
+     appbar:  10px top margin + 50px bar + 12px gap  = 72px
+     bottomnav: 10px bottom margin + 58px bar + 12px gap = 80px
+  ══════════════════════════════════════ */
+  --appbar-h:    calc(env(safe-area-inset-top, 0px) + 72px);
+  --bottomnav-h: calc(env(safe-area-inset-bottom, 0px) + 80px);
+  --screen-h:    calc(100dvh - var(--appbar-h) - var(--bottomnav-h));
+
+  /* ══════════════════════════════════════
+     Переходы
+  ══════════════════════════════════════ */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast:   all 0.15s ease;
+  --transition-slow:   all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}

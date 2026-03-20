@@ -1,0 +1,241 @@
+// ─────────────────────────────────────────────────────
+//   Hero — wedding style
+// ─────────────────────────────────────────────────────
+
+// ── Root ──
+.section {
+  min-height: var(--screen-h, 100svh);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xl) var(--spacing-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+// ════════════════════════════════════
+//   INNER LAYOUT
+// ════════════════════════════════════
+.inner {
+  width: 100%;
+  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xxl);
+  position: relative;
+  z-index: 1;
+}
+
+// ── Portraits row ──
+.portraits {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 56px;
+  width: 100%;
+}
+
+.portraitWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  overflow: visible;
+
+}
+
+.portraitFrame {
+  position: relative;
+  border-radius: 20px;
+  padding: 3px;
+  // background: linear-gradient(135deg, rgba(232,197,197,0.60), rgba(201,162,39,0.40), rgba(232,197,197,0.60));
+  // box-shadow: 0 8px 12px rgba(107, 26, 42, 0.12), 0 2px 8px rgba(107, 26, 42, 0.06);
+  overflow: visible;
+}
+
+.portraitImg {
+  width: 200px;
+  height: 256px;
+  border-radius: 18px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  overflow: visible;
+
+}
+
+.portraitName {
+  font-family: var(--font-script);
+  font-size: 1.6rem;
+  color: var(--accent-wine);
+  font-weight: 400;
+  line-height: 1;
+}
+
+// ── Center column ──
+.centerCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-shrink: 0;
+}
+
+.ringsGlow {
+  color: var(--accent-wine);
+  filter: drop-shadow(0 0 10px rgba(107, 26, 42, 0.20));
+}
+
+.centerYear {
+  font-family: var(--font-script);
+  font-size: 1.2rem;
+  color: rgba(107, 26, 42, 0.38);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+// ════════════════════════════════════
+//   TEXT BLOCK
+// ════════════════════════════════════
+.textBlock {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  max-width: 560px;
+}
+
+.kicker {
+  font-family: var(--font-script);
+  font-size: clamp(2.5rem, 6vw, 2.8rem);
+  color: var(--accent-wine);
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+  text-align: center;
+}
+
+.names {
+  font-family: var(--font-script);
+  font-size: clamp(2.8rem, 8vw, 5rem);
+  color: var(--accent-wine);
+  font-weight: 400;
+  line-height: 1.05;
+  margin: 0;
+  display: none;
+}
+
+.amp {
+  color: var(--accent-gold);
+  font-family: var(--font-script);
+}
+
+// Decorative divider
+.dividerRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 200px;
+}
+.dividerLine {
+  flex: 1;
+  height: 0.5px;
+  background: linear-gradient(90deg, transparent, rgba(107, 26, 42, 0.20), transparent);
+}
+.dividerGem {
+  font-size: 0.7rem;
+  color: var(--accent-gold);
+  line-height: 1;
+}
+
+.tagline {
+  font-family: var(--font-script);
+  font-size: clamp(2.5rem, 6vw, 2.8rem);
+  color: var(--accent-wine);
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+  text-align: center;
+}
+
+// Date badge
+.dateBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 16px;
+  background: rgba(201, 162, 39, 0.09);
+  border: 1px solid rgba(201, 162, 39, 0.30);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+// ════════════════════════════════════
+//   SCROLL HINT
+// ════════════════════════════════════
+.scrollHint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  opacity: 0.45;
+}
+.scrollDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-wine);
+}
+.scrollTrack {
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(to bottom, var(--accent-wine), transparent);
+}
+
+// ════════════════════════════════════
+//   RESPONSIVE
+// ════════════════════════════════════
+@media (max-width: 768px) {
+  .portraits { gap: var(--spacing-xl); }
+  .portraitImg { width: 160px; height: 200px; }
+  .portraitFrame { border-radius: 18px; }
+  .names { font-size: clamp(2.4rem, 7vw, 3.6rem); }
+}
+
+@media (max-width: 480px) {
+  .inner { gap: var(--spacing-xl); }
+
+  .portraits {
+    flex-direction: row;
+    gap: var(--spacing-md);
+    justify-content: center;
+  }
+
+  .portraitFrame {
+    border-radius: 16px;
+    
+
+    // ✅ Валидный SCSS-нестинг (был баг в CSS)
+    img {
+      width: 200px;
+      height: 256px;
+    }
+  }
+
+  .portraitImg {
+    width: 140px;
+    height: 180px;
+    border-radius: 14px;
+  }
+
+  .names { font-size: clamp(2rem, 10vw, 3rem); }
+}

@@ -1,0 +1,113 @@
+.section {
+  padding: var(--spacing-xxl) var(--spacing-lg);
+  position: relative;
+}
+
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--accent-wine);
+  text-align: center;
+  margin-bottom: var(--spacing-xxl);
+
+  &::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: var(--accent-rose);
+    margin: 8px auto 0;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+}
+
+.card {
+  cursor: pointer;
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: var(--shadow-medium);
+  }
+}
+
+.placeholder {
+  aspect-ratio: 4/3;
+  background: rgba(232, 197, 197, 0.15);
+  border: 2px dashed var(--accent-rose);
+  border-radius: var(--border-radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  color: var(--accent-rose-dark);
+  font-size: 0.85rem;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
+.lightboxContent {
+  max-width: 90vw;
+  max-height: 80vh;
+}
+
+.lightboxPlaceholder {
+  width: 320px;
+  height: 240px;
+  background: rgba(255, 250, 247, 0.1);
+  border: 2px dashed rgba(232, 197, 197, 0.5);
+  border-radius: var(--border-radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+}
+
+// ── Mobile ──
+@media (max-width: 480px) {
+  .grid { grid-template-columns: 1fr; }
+  .title { font-size: 1.6rem; }
+}

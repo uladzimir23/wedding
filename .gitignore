@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment variables — НИКОГДА не коммитить
+.env
+.env.local
+.env.*.local
+
+# TypeScript build cache
+tsconfig.app.tsbuildinfo
+tsconfig.node.tsbuildinfo
+
+# Editor
+.DS_Store
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*

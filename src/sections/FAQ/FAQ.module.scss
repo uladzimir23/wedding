@@ -1,0 +1,87 @@
+.section {
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--text-warm-muted);
+  text-transform: uppercase;
+  padding: 0 1rem;
+  margin-bottom: 2px;
+}
+
+// ── List ──
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item {
+  background: var(--card-bg);
+  backdrop-filter: var(--card-blur);
+  -webkit-backdrop-filter: var(--card-blur);
+  border: var(--card-border);
+  border-radius: var(--radius-group);
+  overflow: hidden;
+  box-shadow: var(--shadow-group);
+}
+
+// ── Question button ──
+.question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  padding: 16px 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-warm-dark);
+  text-align: left;
+  transition: color 0.2s;
+  -webkit-tap-highlight-color: transparent;
+
+  &:hover { color: var(--accent-wine); }
+}
+
+.questionOpen {
+  color: var(--accent-wine);
+
+  .chevron { color: var(--accent-wine); }
+}
+
+.chevron {
+  flex-shrink: 0;
+  color: var(--chevron-warm);
+  display: flex;
+  transition: color 0.2s;
+}
+
+// ── Answer ──
+.answerWrap {
+  overflow: hidden;
+}
+
+.answer {
+  padding: var(--spacing-md) 20px var(--spacing-lg);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--text-warm-muted);
+  line-height: 1.65;
+  border-top: 0.5px solid var(--divider-warm);
+}

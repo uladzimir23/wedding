@@ -1,0 +1,271 @@
+/* ─────────────────────────────────────────────────────
+   Location — wedding style
+───────────────────────────────────────────────────── */
+
+@keyframes shimmer {
+  0%   { left: -100%; }
+  100% { left: 200%; }
+}
+
+// Root
+.section {
+  width: 100%;
+  position: relative;
+}
+
+/* ════════════════════════════════════
+   MAP + CONTAINER
+════════════════════════════════════ */
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  position: relative;
+  z-index: 1;
+}
+
+.mapWrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 8;
+}
+
+.mapIframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  pointer-events: all;
+}
+
+.mapGradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.7));
+  pointer-events: none;
+}
+
+// Badge overlay on map
+.mapBadge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  background: rgba(107, 26, 42, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 8px rgba(107, 26, 42, 0.3);
+}
+
+/* ════════════════════════════════════
+   SHEET
+════════════════════════════════════ */
+.sheet {
+  // background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(28px) saturate(1.7);
+  -webkit-backdrop-filter: blur(28px) saturate(1.7);
+  border-top: 0.5px solid rgba(255, 255, 255, 0.9);
+  padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+// Venue row
+.venuRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 0 var(--spacing-md);
+}
+
+.venuIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--accent-wine);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(107, 26, 42, 0.3);
+}
+
+.venuInfo { flex: 1; min-width: 0; }
+
+.venueName {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-warm-dark);
+  letter-spacing: -0.01em;
+}
+
+.venueAddress {
+  font-family: var(--font-sans);
+  font-size: 0.73rem;
+  color: var(--text-warm-muted);
+  margin-top: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.copyBtn {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid rgba(107, 26, 42, 0.15);
+  background: rgba(107, 26, 42, 0.05);
+  color: var(--text-warm-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+
+  &:active { transform: scale(0.93); }
+}
+
+.copyBtnDone {
+  background: rgba(90, 122, 85, 0.10);
+  border-color: rgba(90, 122, 85, 0.30);
+  color: #5A7A55;
+}
+
+// Divider
+.sheetDivider {
+  height: 0.5px;
+  background: var(--divider-warm);
+  margin: var(--spacing-md) 0;
+}
+
+// Transport list
+.transportList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.transportCard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: rgba(107, 26, 42, 0.03);
+  border-radius: 2rem;
+  border: 0.5px solid rgba(107, 26, 42, 0.07);
+}
+
+.tIconWrap {
+  width: 32px;
+  height: 32px;
+  border-radius: 18px;
+  background: rgba(107, 26, 42, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--accent-wine);
+}
+
+.tInfo { flex: 1; min-width: 0; }
+
+.tTitle {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-warm-dark);
+}
+
+.tDesc {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--text-warm-muted);
+  margin-top: 1px;
+}
+
+.tBadge {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--accent-wine);
+  background: rgba(107, 26, 42, 0.08);
+  border: 1px solid rgba(107, 26, 42, 0.20);
+  border-radius: var(--border-radius-full);
+  padding: 3px 9px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+// Time badge (bus)
+.timeBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  background: rgba(201, 162, 39, 0.09);
+  border: 1px solid rgba(201, 162, 39, 0.25);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  flex-shrink: 0;
+  letter-spacing: 0.04em;
+}
+
+// Route button — primary gradient
+.routeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: 0 var(--spacing-lg);
+  height: 52px;
+  background: linear-gradient(135deg, var(--accent-wine) 0%, #5C1020 100%);
+  color: #fff;
+  text-decoration: none;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 18px rgba(107, 26, 42, 0.30), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition: opacity 0.2s;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+    animation: shimmer 3s infinite 0.5s;
+    pointer-events: none;
+  }
+
+  &:active { opacity: 0.85; }
+}

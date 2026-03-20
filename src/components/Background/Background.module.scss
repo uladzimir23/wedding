@@ -1,0 +1,275 @@
+// ── Keyframes для органичного движения ──────────────────────────────
+
+@keyframes floatA {
+  0%, 100% { transform: translateY(0px)   rotate(0deg); }
+  33%       { transform: translateY(-14px) rotate(5deg); }
+  66%       { transform: translateY(-6px)  rotate(-3deg); }
+}
+@keyframes floatB {
+  0%, 100% { transform: translateY(0px)  rotate(0deg); }
+  40%       { transform: translateY(-9px) rotate(-6deg); }
+  75%       { transform: translateY(-4px) rotate(4deg); }
+}
+@keyframes floatC {
+  0%, 100% { transform: translateY(0px)   rotate(0deg); }
+  50%       { transform: translateY(-12px) rotate(7deg); }
+}
+@keyframes spin {
+  0%   { transform: rotate(0deg)   scale(1); }
+  50%  { transform: rotate(180deg) scale(1.12); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1) rotate(-5deg);  opacity: 0.65; }
+  30%       { transform: scale(1.14) rotate(3deg); opacity: 1; }
+  60%       { transform: scale(0.96) rotate(-2deg); opacity: 0.8; }
+}
+@keyframes ringPulse {
+  0%, 100% { transform: scale(1) rotate(0deg);   opacity: 1; }
+  50%       { transform: scale(1.05) rotate(2deg); opacity: 0.6; }
+}
+
+// ── Root ──────────────────────────────────────────────────────────────
+
+.background {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: var(--bg-color);
+  pointer-events: none;
+}
+
+// ── Ambient gradient blobs ───────────────────────────────────────────
+
+.blobTL {
+  position: absolute;
+  top: -10%;
+  left: -14%;
+  width: 75%;
+  height: 58%;
+  background: radial-gradient(ellipse at center,
+    rgba(232, 197, 197, 0.28) 0%,
+    rgba(232, 197, 197, 0.08) 45%,
+    transparent 70%);
+}
+
+.blobBR {
+  position: absolute;
+  bottom: -8%;
+  right: -12%;
+  width: 68%;
+  height: 52%;
+  background: radial-gradient(ellipse at center,
+    rgba(212, 175, 55, 0.10) 0%,
+    rgba(212, 175, 55, 0.03) 45%,
+    transparent 70%);
+}
+
+.blobCenter {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 85% 55% at 50% 35%,
+      rgba(255, 248, 245, 0.42) 0%, transparent 72%),
+    radial-gradient(ellipse 55% 38% at 78% 72%,
+      rgba(232, 197, 197, 0.14) 0%, transparent 65%);
+}
+
+.blobMid {
+  position: absolute;
+  top: 35%;
+  left: -5%;
+  width: 45%;
+  height: 40%;
+  background: radial-gradient(ellipse at center,
+    rgba(197, 213, 192, 0.08) 0%,
+    transparent 70%);
+}
+
+// ── Paper grain & vignette ───────────────────────────────────────────
+
+.grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  // Перекрёстный CSS-паттерн — работает на любом Safari без SVG-фильтров
+  background-image:
+    repeating-linear-gradient(
+      55deg,
+      rgba(92, 22, 34, 0.022) 0px,
+      rgba(92, 22, 34, 0.022) 1px,
+      transparent             1px,
+      transparent             7px
+    ),
+    repeating-linear-gradient(
+      -55deg,
+      rgba(92, 22, 34, 0.016) 0px,
+      rgba(92, 22, 34, 0.016) 1px,
+      transparent              1px,
+      transparent              10px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(201, 162, 39, 0.012) 0px,
+      rgba(201, 162, 39, 0.012) 1px,
+      transparent                1px,
+      transparent                14px
+    );
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 11;
+  // Упрощённый синтаксис — совместим со старым Safari
+  background: radial-gradient(ellipse at center, transparent 52%, rgba(107, 26, 42, 0.06) 100%);
+}
+
+// ── Базовый класс для всех декоративных элементов ───────────────────
+
+.el {
+  position: absolute;
+  pointer-events: none;
+  will-change: transform;
+}
+
+// ── Rings ─────────────────────────────────────────────────────────────
+
+.ringsTR {
+  top: -22px;
+  right: -32px;
+  width: 200px;
+  color: rgba(107, 26, 42, 0.07);
+  animation: ringPulse 10s ease-in-out infinite;
+}
+
+.ringsBL {
+  bottom: 18%;
+  left: -48px;
+  width: 160px;
+  color: rgba(201, 162, 39, 0.09);
+  animation: ringPulse 13s ease-in-out infinite 3s;
+}
+
+// ── Petals ────────────────────────────────────────────────────────────
+
+.petal1 {
+  top: 6%;
+  right: 8%;
+  width: 54px;
+  animation: floatA 8s  ease-in-out infinite;
+}
+.petal2 {
+  top: 28%;
+  left: 5%;
+  width: 42px;
+  animation: floatB 10s ease-in-out infinite 1.3s;
+}
+.petal3 {
+  top: 52%;
+  right: 5%;
+  width: 38px;
+  animation: floatC 9s  ease-in-out infinite 2.5s;
+}
+.petal4 {
+  top: 70%;
+  left: 8%;
+  width: 56px;
+  animation: floatA 7s  ease-in-out infinite 0.7s;
+}
+.petal5 {
+  top: 14%;
+  left: 3%;
+  width: 32px;
+  animation: floatB 12s ease-in-out infinite 4s;
+}
+.petal6 {
+  top: 86%;
+  right: 10%;
+  width: 46px;
+  animation: floatC 8.5s ease-in-out infinite 2s;
+}
+.petal7 {
+  top: 40%;
+  left: 1%;
+  width: 28px;
+  animation: floatA 11s ease-in-out infinite 1s;
+}
+
+// ── Sparkles ──────────────────────────────────────────────────────────
+
+.sparkle1 {
+  top: 4%;
+  left: 12%;
+  width: 22px;
+  color: rgba(201, 162, 39, 0.54);
+  animation: spin 5.5s linear infinite;
+}
+.sparkle2 {
+  top: 32%;
+  right: 9%;
+  width: 18px;
+  color: rgba(201, 162, 39, 0.42);
+  animation: spin 7.5s linear infinite reverse;
+}
+.sparkle3 {
+  top: 58%;
+  left: 15%;
+  width: 15px;
+  color: rgba(201, 162, 39, 0.34);
+  animation: spin 9.5s linear infinite 1.5s;
+}
+.sparkle4 {
+  top: 77%;
+  right: 7%;
+  width: 20px;
+  color: rgba(201, 162, 39, 0.46);
+  animation: spin 6.5s linear infinite reverse 0.8s;
+}
+.sparkle5 {
+  top: 45%;
+  left: 2%;
+  width: 13px;
+  color: rgba(201, 162, 39, 0.30);
+  animation: spin 8s   linear infinite 2.2s;
+}
+.sparkle6 {
+  top: 92%;
+  left: 20%;
+  width: 16px;
+  color: rgba(201, 162, 39, 0.38);
+  animation: spin 11s  linear infinite reverse 3s;
+}
+
+// ── Hearts ────────────────────────────────────────────────────────────
+
+.heart1 {
+  top: 19%;
+  right: 4%;
+  width: 22px;
+  color: rgba(107, 26, 42, 0.11);
+  animation: heartbeat 6.5s ease-in-out infinite;
+}
+.heart2 {
+  top: 44%;
+  left: 4%;
+  width: 18px;
+  color: rgba(107, 26, 42, 0.09);
+  animation: heartbeat 8.5s ease-in-out infinite 2s;
+}
+.heart3 {
+  top: 74%;
+  right: 12%;
+  width: 16px;
+  color: rgba(107, 26, 42, 0.08);
+  animation: heartbeat 7s   ease-in-out infinite 3.5s;
+}
+.heart4 {
+  top: 62%;
+  left: 10%;
+  width: 14px;
+  color: rgba(107, 26, 42, 0.07);
+  animation: heartbeat 9s   ease-in-out infinite 1s;
+}

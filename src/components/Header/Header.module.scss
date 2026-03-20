@@ -1,0 +1,76 @@
+@keyframes gentlePulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.05); }
+}
+
+.header {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  right: 0.5rem;
+  height: 60px;
+  border-radius: var(--border-radius-md);
+  backdrop-filter: blur(10px);
+  background: rgba(255, 250, 247, 0.7);
+  border: 1px solid rgba(232, 197, 197, 0.3);
+  box-shadow: var(--shadow-soft);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 var(--spacing-lg);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.logo {
+  color: var(--accent-gold);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: rotate(5deg) scale(1.1);
+  }
+}
+
+.names {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--text-primary);
+}
+
+.countdown {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+}
+
+.daysNumber {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  line-height: 1;
+  text-shadow: 0 2px 12px rgba(212, 175, 55, 0.4);
+  animation: gentlePulse 2s infinite ease-in-out;
+}
+
+.daysLabel {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 480px) {
+  .names { font-size: 0.9rem; }
+  .daysNumber { font-size: 1.4rem; }
+}

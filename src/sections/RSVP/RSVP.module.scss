@@ -1,0 +1,441 @@
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50%       { transform: scale(1.1); opacity: 1; }
+}
+
+.section {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--spacing-xl) var(--spacing-lg) var(--spacing-xxl);
+  position: relative;
+}
+
+.container {
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3.5vw, 3.5rem);
+  color: var(--accent-wine);
+  margin-bottom: var(--spacing-sm);
+
+  &::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: var(--accent-rose);
+    margin: 8px auto 0;
+  }
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-xl);
+  font-style: italic;
+}
+
+// ── Табы ──
+
+.tabs {
+  display: flex;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(232, 197, 197, 0.4);
+  border-radius: var(--border-radius-full);
+  padding: 5px;
+  margin-bottom: var(--spacing-xl);
+}
+
+.tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px var(--spacing-md);
+  border-radius: var(--border-radius-full);
+  border: none;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, box-shadow 0.25s;
+  white-space: nowrap;
+
+  &:hover { color: var(--text-primary); }
+}
+
+.tabActive {
+  background: #fff;
+  color: var(--text-primary);
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+// ── Панель таба ──
+
+.tabPanel {
+  text-align: left;
+}
+
+// ── Telegram-карточка ──
+
+.telegramCard {
+  background: linear-gradient(135deg, rgba(41, 182, 246, 0.07), rgba(3, 155, 229, 0.11));
+  border: 1.5px solid rgba(41, 182, 246, 0.25);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xxl) var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+  text-align: center;
+}
+
+.telegramCircleWrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.telegramCircle {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(41, 182, 246, 0.18), rgba(3, 155, 229, 0.28));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.telegramCircleEmoji {
+  font-size: 2.4rem;
+}
+
+.telegramCircleRing {
+  position: absolute;
+  inset: -7px;
+  border-radius: 50%;
+  border: 2.5px solid rgba(41, 182, 246, 0.35);
+  animation: pulse 2.2s ease-in-out infinite;
+}
+
+.telegramMain {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.telegramSub {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 380px;
+
+  strong {
+    color: var(--accent-wine);
+    font-weight: 700;
+  }
+}
+
+.telegramBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  background: #29b6f6;
+  color: #fff;
+  padding: 13px var(--spacing-xxl);
+  border-radius: var(--border-radius-full);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 18px rgba(41, 182, 246, 0.35);
+  min-height: 48px;
+
+  &:hover {
+    background: #039be5;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 28px rgba(41, 182, 246, 0.45);
+  }
+}
+
+.telegramHint {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.switchLink {
+  background: none;
+  border: none;
+  color: var(--accent-wine);
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  padding: 0;
+}
+
+// ── Форма ──
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+}
+
+.input,
+.select {
+  width: 100%;
+  padding: 12px var(--spacing-md);
+  border: 1.5px solid rgba(232, 197, 197, 0.6);
+  border-radius: var(--border-radius-md);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+  outline: none;
+  appearance: none;
+
+  &:focus {
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+  }
+}
+
+.inputError { border-color: #c0392b; }
+.error { font-size: 0.8rem; color: #c0392b; }
+
+// ── Radio ──
+
+.radioGroup {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px var(--spacing-md);
+  border: 1.5px solid rgba(232, 197, 197, 0.5);
+  border-radius: var(--border-radius-full);
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+  user-select: none;
+
+  &:hover { border-color: var(--accent-rose-dark); }
+}
+
+.radioActive {
+  border-color: var(--accent-gold);
+  background: rgba(212, 175, 55, 0.1);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.radioInput { display: none; }
+
+// ── Checkbox ──
+
+.checkLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent-gold);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+// ── Условные поля ──
+
+.extraFields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  overflow: hidden;
+}
+
+// ── Список гостей ──
+
+.guestList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background: rgba(232, 197, 197, 0.1);
+  border-radius: var(--border-radius-md);
+  border: 1px solid rgba(232, 197, 197, 0.3);
+  overflow: hidden;
+}
+
+.guestListHint {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.guestRow {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+
+  .input { flex: 1; }
+}
+
+.removeBtn {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(232, 197, 197, 0.5);
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+
+  &:hover {
+    background: rgba(107, 26, 42, 0.08);
+    color: var(--accent-wine);
+  }
+}
+
+.addBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  padding: 8px var(--spacing-md);
+  border: 1.5px dashed rgba(212, 175, 55, 0.5);
+  border-radius: var(--border-radius-full);
+  background: transparent;
+  color: var(--accent-wine);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+
+  &:hover {
+    border-color: var(--accent-gold);
+    background: rgba(212, 175, 55, 0.06);
+  }
+}
+
+// ── Кнопка отправки ──
+
+.submitButton {
+  margin-top: var(--spacing-sm);
+  padding: 14px var(--spacing-xl);
+  background: linear-gradient(135deg, var(--accent-gold), #b8961f);
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius-full);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.35);
+  align-self: center;
+  min-width: 220px;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(212, 175, 55, 0.45);
+  }
+
+  &:active { transform: translateY(0); }
+}
+
+// ── Экран успеха ──
+
+.success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-xxl) var(--spacing-lg);
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(232, 197, 197, 0.4);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+.successIcon { font-size: 3rem; }
+
+.successTitle {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--accent-wine);
+}
+
+.successText {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  text-align: center;
+}
+
+// ── Mobile ──
+@media (max-width: 768px) {
+  .section { padding: 80px var(--spacing-lg); }
+  .title { font-size: 2rem; }
+}
+
+@media (max-width: 480px) {
+  .section { padding: 80px var(--spacing-md); }
+  .title { font-size: 1.6rem; }
+  .radioGroup { flex-direction: column; }
+  .submitButton { width: 100%; min-width: 0; }
+  .tab { font-size: 0.82rem; padding: 9px var(--spacing-sm); gap: 5px; }
+}

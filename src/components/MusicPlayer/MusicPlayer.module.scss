@@ -1,0 +1,106 @@
+.player {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 250, 247, 0.8);
+  border-radius: var(--border-radius-full);
+  padding: 8px 16px 8px 12px;
+  box-shadow: var(--shadow-medium);
+  border: 1px solid rgba(232, 197, 197, 0.4);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  z-index: 200;
+  transition: var(--transition-smooth);
+
+  &:hover {
+    box-shadow: var(--shadow-strong);
+  }
+}
+
+.discContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-gold);
+  transform-origin: center;
+}
+
+.discIcon {
+  stroke-width: 1.5;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.controlButton {
+  background: var(--accent-rose);
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  transition: var(--transition-smooth);
+
+  &:hover:not(:disabled) {
+    background: var(--accent-rose-dark);
+    transform: scale(1.05);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+.volumeControl {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.volumeButton {
+  background: transparent;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+
+  &:hover {
+    color: var(--accent-gold);
+  }
+}
+
+.slider {
+  width: 56px;
+  height: 4px;
+  -webkit-appearance: none;
+  background: var(--accent-rose);
+  border-radius: 2px;
+  outline: none;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    background: var(--accent-gold);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.errorText {
+  font-size: 0.8rem;
+  color: #999;
+}
