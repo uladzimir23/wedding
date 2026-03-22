@@ -40,7 +40,7 @@ export async function sendWish(firstName: string, lastName: string, wish: string
     console.warn('[Telegram] VITE_TELEGRAM_GUEST_CHANNEL_ID not set')
     return
   }
-  const text = `💌 <b>${firstName} ${lastName}</b>\n\n${wish}`
+  const text = `💌 <b>${[firstName, lastName].filter(Boolean).join(' ')}</b>\n\n${wish}`
   await post(GUEST_CHANNEL, text)
 }
 

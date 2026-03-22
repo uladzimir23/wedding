@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Heart, Send } from 'lucide-react'
-import { sendTelegramMessage } from '../../services/telegram'
+import { sendTelegramMessage, sendWish } from '../../services/telegram'
 import styles from './GuestBook.module.scss'
 
 interface Message {
@@ -34,6 +34,7 @@ const GuestBook = () => {
     sendTelegramMessage(
       `💌 <b>ПОЖЕЛАНИЕ МОЛОДЫМ</b>\n\n✍️ <b>${entry.name}</b>\n«${entry.text}»\n\n⏰ ${new Date().toLocaleString('ru-RU')}`
     )
+    sendWish(entry.name, '', entry.text)
   }
 
   return (
