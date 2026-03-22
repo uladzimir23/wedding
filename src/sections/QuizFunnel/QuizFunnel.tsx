@@ -224,7 +224,13 @@ const QuizFunnel = () => {
       case 1: return data.firstName.trim().length > 0
       case 2: return data.lastName.trim().length > 0
       case 3: return data.phone.replace(/\D/g, '').length >= 7
-      case 4: return data.guests !== ''
+      case 4: {
+        if (data.guests === '') return false
+        const needed = extraNameCount(data.guests)
+        if (needed === 0) return true
+        return Array.from({ length: needed }, (_, i) => data.guestNames[i] ??
+      '').every(n => n.trim().length > 0)
+      }
       case 5: return data.transport !== ''
       case 6: return data.hasAllergies !== null &&
                      (!data.hasAllergies || data.allergiesDetail.trim().length > 0)
