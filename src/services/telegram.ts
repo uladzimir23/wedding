@@ -5,7 +5,6 @@ const GUEST_CHANNEL  = import.meta.env.VITE_TELEGRAM_GUEST_CHANNEL_ID as string 
 export const TELEGRAM_CHANNEL_URL =
   (import.meta.env.VITE_TELEGRAM_CHANNEL_URL as string | undefined) ?? ''
 
-/* ── Low-level: отправить сообщение в произвольный chat_id ── */
 async function post(chat_id: string, text: string): Promise<void> {
   if (!BOT_TOKEN) {
     console.warn('[Telegram] VITE_TELEGRAM_BOT_TOKEN not set')
