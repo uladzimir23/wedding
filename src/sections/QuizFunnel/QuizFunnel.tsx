@@ -267,13 +267,6 @@ const QuizFunnel = () => {
         `⏰ ${v.timestamp}`,
         `👁 Визит #${v.visitCount} с этого устройства`,
       ]
-      await sendGuestData(adminLines.filter(l => l !== '').join('\n'))
-
-      // → Гостевой канал: только пожелание (если заполнено)
-      if (data.wishes.trim()) {
-        await sendWish(data.firstName, data.lastName, data.wishes.trim())
-      }
-
       localStorage.setItem('quiz_done', '1')
       localStorage.setItem('quiz_summary', JSON.stringify({
         firstName:        data.firstName,
@@ -286,6 +279,13 @@ const QuizFunnel = () => {
         allergiesDetail:  data.allergiesDetail,
         wishes:           data.wishes,
       } satisfies SavedSummary))
+
+      await sendGuestData(adminLines.filter(l => l !== '').join('\n'))
+
+      // → Гостевой канал: только пожелание (если заполнено)
+      if (data.wishes.trim()) {
+        await sendWish(data.firstName, data.lastName, data.wishes.trim())
+      }
     } catch (e) {
       console.error('Quiz submit error:', e)
     } finally {
