@@ -14,7 +14,7 @@ interface Event {
 
 const events: Event[] = [
   {
-    time: '15:00', title: 'Сбор гостей',  desc: 'Welcome-фуршет и живая музыка',
+    time: '15:00', title: 'Сбор гостей',  desc: 'Welcome-фуршет',
     Icon: Wine,        color: 'linear-gradient(135deg,#C9A227,#e8c44a)', accentColor: '#C9A227',
   },
   {
